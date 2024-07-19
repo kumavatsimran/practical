@@ -1,4 +1,4 @@
-const {blogDB}=require("../models/blogdata")
+const blogDB=require("../models/blogdata")
 const user=require("../models/user")
 const multer=require('multer')
 const jwt=require('jsonwebtoken')
@@ -93,12 +93,10 @@ const login = async(req,res)=>{
             const pageload={
                 username: User.username,
                 email: User.email,
-                phone: User.phone,
                 role:"adim"
               }
               const token=jwt.sign(pageload,'priveat-key')
               console.log(token);
-            //   return res.redirect("/");
             return res.cookie('user',User.id).redirect('/');
         }
         console.log("invalid password");  

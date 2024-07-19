@@ -8,7 +8,6 @@ const blogSchema=new mongoose.Schema({
 
 
 const blogDB=mongoose.model("blogTBL",blogSchema)
-console.log(blogDB)
 
-module.exports={blogDB};
+module.exports=blogDB;
 

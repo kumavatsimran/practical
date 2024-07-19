@@ -1,6 +1,5 @@
 const  {Router}=require('express')
 const { isAuth,isAuthjwt}=require('../middlewar/Auth')
-// const {isAuth}= require('../middlewar/Auth');
 const { blogPage, AddBlog, uploadImage,form, deleteData,edit,editdata, loginPage,signupPage,login,signup,logout} = require('../controller/controller');
 
 const router=Router();
