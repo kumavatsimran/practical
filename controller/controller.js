@@ -57,7 +57,6 @@ const edit=async(req,res)=>{
     let blog=await
     console.log(id,"e");
     blogDB.findById(id).then((blog) => {
-        // console.log(data,"update");
         return res.render('./pages/edit', {blog});
     }).catch((err) => {
         console.log(err);
@@ -91,13 +90,19 @@ const login = async(req,res)=>{
 
     if(User){
         if(User.password === password){
+            const pageload={
+                username: User.username,
+                email: User.email,
+                phone: User.phone,
+                role:"adim"
+              }
+              const token=jwt.sign(pageload,'priveat-key')
+              console.log(token);
+            //   return res.redirect("/");
             return res.cookie('user',User.id).redirect('/');
         }
         console.log("invalid password");  
-        return res.redirect('/login'); 
-        const token=jwt.sign(pageload,'priveat-key')
-      console.log(token);
-      return res.redirect("/");     
+        return res.redirect('/login');      
     }else{
         console.log("invalid email");
         return res.redirect('/login')

@@ -1,11 +1,11 @@
 const  {Router}=require('express')
-const { isAuth}=require('../middlewar/Auth')
+const { isAuth,isAuthjwt}=require('../middlewar/Auth')
 // const {isAuth}= require('../middlewar/Auth');
 const { blogPage, AddBlog, uploadImage,form, deleteData,edit,editdata, loginPage,signupPage,login,signup,logout} = require('../controller/controller');
 
 const router=Router();
 
-router.get('/',isAuth,blogPage);
+router.get('/',isAuth,isAuthjwt,blogPage);
 router.get('/blog',form);
 router.get('/deleteData',deleteData);
 router.get('/editData',edit);

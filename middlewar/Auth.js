@@ -20,4 +20,4 @@ const isAuthjwt = (req, res, next) => {
     }
   };
 
-module.exports = { isAuth };
+module.exports = { isAuth,isAuthjwt };
